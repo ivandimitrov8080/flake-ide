@@ -1,48 +1,90 @@
-{ pkgs, lib, ... }:
-let grammars = with pkgs.vimPlugins.nvim-treesitter-parsers; [
-  diff
-  regex
-  vimdoc
-  comment
-  markdown
-  ungrammar
-  gitignore
-  gitcommit
-  git_rebase
-  git_config
-  gitattributes
-  dockerfile
-];
+{ nixvim
+, nixpkgs
+, system
+, ...
+}:
+let
+  pkgs = nixpkgs.legacyPackages.${system};
 in
+nixvim.legacyPackages."${system}".makeNixvim
 {
-  imports = [ ./bash.nix ./nix.nix ./lua.nix ./js.nix ./util.nix ];
-
-  programs.neovim = {
+  colorschemes.catppuccin = {
     enable = true;
-    viAlias = true;
-    extraPackages = with pkgs; [
-      ripgrep
-    ];
-    plugins = with pkgs.vimPlugins; grammars ++ [
-      nvim-treesitter
-      nvim-surround
-      nvim-ts-autotag
-      autoclose-nvim
-      barbar-nvim
-      cmp-nvim-lsp
-      comment-nvim
-      gitsigns-nvim
-      luasnip
-      catppuccin-nvim
-      nvim-cmp
-      nvim-lspconfig
-      nvim-web-devicons
-      plenary-nvim
-      telescope-nvim
-      toggleterm-nvim
-      vim-vinegar
-      lualine-nvim
-    ];
-    extraLuaConfig = lib.fileContents ./nvim/default.lua;
+    flavour = "mocha";
+    transparentBackground = true;
+  };
+  plugins = {
+    treesitter = {
+      enable = true;
+    };
+    ts-autotag = {
+      enable = true;
+    };
+    lsp = {
+      enable = true;
+      onAttach = ''
+        function(client, bufnr)
+            nmap("<leader>ca", vim.lsp.buf.code_action)
+            nmap("<leader>lr", vim.lsp.buf.rename)
+            nmap("gd", vim.lsp.buf.definition)
+            nmap("<leader>lf", function()
+                vim.lsp.buf.format()
+            end)
+            nmap("K", vim.lsp.buf.hover)
+            nmap("gr", require("telescope.builtin").lsp_references)
+            if client.server_capabilities.documentHighlightProvider then
+                vim.api.nvim_create_autocmd("CursorHold", {
+                    buffer = bufnr,
+                    callback = function()
+                        vim.lsp.buf.document_highlight()
+                    end,
+                })
+                vim.api.nvim_create_autocmd("CursorMoved", {
+                    buffer = bufnr,
+                    callback = function()
+                        vim.lsp.buf.clear_references()
+                    end,
+                })
+            end
+        end
+      '';
+      capabilities = ''
+        require("cmp_nvim_lsp").default_capabilities()
+      '';
+      servers = {
+        nixd.enable = true;
+      };
+    };
+    nvim-cmp = {
+      enable = true;
+      mapping = {
+        "<CR>" = "cmp.mapping.confirm({ select = true })";
+        "<C-Space>" = "cmp.mapping.complete()";
+      };
+    };
+    luasnip = {
+      enable = true;
+    };
+    lualine = {
+      enable = true;
+    };
+    telescope = {
+      enable = true;
+      extraOptions = {
+        defaults =
+          {
+            file_ignore_patterns = [ "hosts" ];
+          };
+      };
+    };
+    gitsigns = {
+      enable = true;
+    };
+    toggleterm = {
+      enable = true;
+    };
+    comment-nvim = {
+      enable = true;
+    };
   };
 }

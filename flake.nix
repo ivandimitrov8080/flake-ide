@@ -14,23 +14,26 @@
     };
   };
 
-  outputs = { self, nixvim, flake-utils, nixpkgs, ... }:
+  outputs =
+    { self
+    , nixvim
+    , flake-utils
+    , nixpkgs
+    , ...
+    }:
     flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-        nvim =
-          nixvim.legacyPackages."${system}".makeNixvim
-            { };
-        buildInputs = with pkgs; [
-          nvim
-        ];
-      in
-      {
-        devShells.default = pkgs.mkShell {
-          inherit buildInputs;
-          shellHook = ''
+    let
+      pkgs = nixpkgs.legacyPackages.${system};
+      nvim = import ./neovim { inherit nixpkgs nixvim system; };
+      buildInputs = with pkgs; [
+        nvim
+      ];
+    in
+    {
+      devShells.default = pkgs.mkShell {
+        inherit buildInputs;
+        shellHook = ''
         '';
-        };
-
-      });
+      };
+    });
 }
