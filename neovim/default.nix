@@ -1,6 +1,7 @@
 { nixvim
 , pkgs
 , system
+, servers
 , ...
 }:
 nixvim.legacyPackages."${system}".makeNixvim {
@@ -123,9 +124,7 @@ nixvim.legacyPackages."${system}".makeNixvim {
       capabilities = ''
         require("cmp_nvim_lsp").default_capabilities()
       '';
-      servers = {
-        nixd.enable = true;
-      };
+      servers = servers;
     };
     nvim-cmp = {
       enable = true;
