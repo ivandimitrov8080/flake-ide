@@ -26,10 +26,11 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      nvim = { config, ... }: {
-        package = import ./neovim {
-          inherit pkgs nixvim system config;
-        };
-      };
+      nvim = config: (
+        import ./neovim {
+          inherit pkgs nixvim system;
+          config = config;
+        }
+      );
     });
 }
