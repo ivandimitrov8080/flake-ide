@@ -24,17 +24,9 @@
     flake-utils.lib.eachDefaultSystem (system:
     let
       pkgs = nixpkgs.legacyPackages.${system};
-      nvim = import ./neovim { inherit nixpkgs nixvim system; };
-      buildInputs = with pkgs; [
-        nvim
-      ];
+      nvim = import ./neovim { inherit pkgs nixvim system; };
     in
     {
-      devShells.default = pkgs.mkShell {
-        inherit buildInputs;
-        shellHook = ''
-        '';
-      };
       nvim = nvim;
     });
 }

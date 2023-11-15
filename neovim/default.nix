@@ -1,13 +1,9 @@
 { nixvim
-, nixpkgs
+, pkgs
 , system
 , ...
 }:
-let
-  pkgs = nixpkgs.legacyPackages.${system};
-in
-nixvim.legacyPackages."${system}".makeNixvim
-{
+nixvim.legacyPackages."${system}".makeNixvim {
   globals = {
     mapleader = " ";
     maplocalleader = " ";
