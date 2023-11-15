@@ -149,4 +149,4 @@ let
     };
   };
 in
-nixvim.legacyPackages."${system}".makeNixvim defaultConfig // config
+nixvim.legacyPackages."${system}".makeNixvim (defaultConfig // config)
