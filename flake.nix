@@ -28,8 +28,7 @@
     {
       nvim = config: (
         import ./neovim {
-          inherit pkgs nixvim system;
-          config = config;
+          inherit pkgs nixvim system config;
         }
       );
     });
