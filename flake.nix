@@ -24,10 +24,11 @@
     flake-utils.lib.eachDefaultSystem (system:
     let
       pkgs = nixpkgs.legacyPackages.${system};
+      lib = pkgs.lib;
     in
     {
       nvim = config: import ./neovim {
-        inherit nixvim pkgs system config;
+        inherit nixvim pkgs lib system config;
       };
     });
 }

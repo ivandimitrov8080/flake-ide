@@ -2,6 +2,7 @@
 , pkgs
 , system
 , config
+, lib
 , ...
 }:
 let
@@ -149,4 +150,4 @@ let
     };
   };
 in
-nixvim.legacyPackages."${system}".makeNixvim (pkgs.lib.recursiveUpdate (defaultConfig config))
+nixvim.legacyPackages."${system}".makeNixvim (lib.recursiveUpdate defaultConfig config)
