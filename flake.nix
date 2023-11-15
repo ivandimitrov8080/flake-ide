@@ -35,5 +35,6 @@
         shellHook = ''
         '';
       };
+      nvim = nvim;
     });
 }
