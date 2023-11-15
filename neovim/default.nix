@@ -1,7 +1,7 @@
 { nixvim
 , pkgs
 , system
-, servers
+, config
 , ...
 }:
 nixvim.legacyPackages."${system}".makeNixvim {
@@ -124,7 +124,6 @@ nixvim.legacyPackages."${system}".makeNixvim {
       capabilities = ''
         require("cmp_nvim_lsp").default_capabilities()
       '';
-      servers = servers;
     };
     nvim-cmp = {
       enable = true;
@@ -147,4 +146,4 @@ nixvim.legacyPackages."${system}".makeNixvim {
     treesitter.enable = true;
     ts-autotag.enable = true;
   };
-}
+} // config
