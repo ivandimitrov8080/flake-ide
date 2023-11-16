@@ -141,6 +141,7 @@ let
     plugins = {
       lsp = {
         enable = true;
+        servers.nixd = true;
         onAttach = ''
           if client.server_capabilities.documentHighlightProvider then
               vim.api.nvim_create_autocmd("CursorHold", {
@@ -180,8 +181,9 @@ let
         theme = "catppuccin";
       };
       cmp-spell.enable = true;
-      barbar.enable = true;
       cmp-nvim-lsp.enable = true;
+      cmp_luasnip.enable = true;
+      barbar.enable = true;
       luasnip.enable = true;
       telescope.enable = true;
       gitsigns.enable = true;
