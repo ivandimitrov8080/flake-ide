@@ -167,6 +167,7 @@ let
           "<CR>" = "cmp.mapping.confirm({ select = true })";
           "<C-Space>" = "cmp.mapping.complete()";
         };
+        snippet.expand = "luasnip";
       };
       nvim-cmp.sources = [
         { name = "nvim_lsp"; }
