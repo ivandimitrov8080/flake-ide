@@ -168,10 +168,17 @@ let
           "<C-Space>" = "cmp.mapping.complete()";
         };
       };
+      nvim-cmp.sources = [
+        { name = "nvim_lsp"; }
+        { name = "luasnip"; }
+        { name = "path"; }
+        { name = "buffer"; }
+      ];
       lualine = {
         enable = true;
         theme = "catppuccin";
       };
+      cmp-spell.enable = true;
       barbar.enable = true;
       cmp-nvim-lsp.enable = true;
       luasnip.enable = true;
