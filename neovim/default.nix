@@ -29,7 +29,9 @@ let
         cmp = true;
         gitsigns = true;
         treesitter = true;
-        telescope = true;
+        telescope = {
+          enabled = true;
+        };
         markdown = true;
       };
     };
