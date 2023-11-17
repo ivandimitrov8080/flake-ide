@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs";
     nixvim = {
-      url = "github:nix-community/nixvim";
+      url = "github:ivandimitrov8080/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     systems.url = "github:nix-systems/x86_64-linux";
