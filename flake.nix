@@ -25,10 +25,11 @@
     let
       pkgs = nixpkgs.legacyPackages.${system};
       lib = pkgs.lib;
+      nv = import ./neovim {
+        inherit nixvim pkgs lib system;
+      };
     in
     {
-      nvim = config: import ./neovim {
-        inherit nixvim pkgs lib system config;
-      };
+      nvim = config: nv.standalone config;
     });
 }

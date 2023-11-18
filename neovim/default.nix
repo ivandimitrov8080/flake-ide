@@ -1,7 +1,6 @@
 { nixvim
 , pkgs
 , system
-, config
 , lib
 , ...
 }:
@@ -202,4 +201,6 @@ let
     };
   };
 in
-nixvim.legacyPackages."${system}".makeNixvim (lib.recursiveUpdate defaultConfig config)
+{
+  standalone = cfg: nixvim.legacyPackages."${system}".makeNixvim (lib.recursiveUpdate defaultConfig cfg);
+}
