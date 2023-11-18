@@ -203,4 +203,10 @@ let
 in
 {
   standalone = cfg: nixvim.legacyPackages."${system}".makeNixvim (lib.recursiveUpdate defaultConfig cfg);
+  homevim = cfg: (
+    {
+      imports = [ nixvim.homeManagerModules.nixvim ];
+      programs.nixvim = (lib.recursiveUpdate defaultConfig cfg);
+    }
+  );
 }

@@ -30,6 +30,7 @@
       };
     in
     {
-      nvim = config: nv.standalone config;
+      nvim = cfg: nv.standalone cfg;
+      homeManagerModules.nvim = cfg: nv.homevim cfg;
     });
 }
