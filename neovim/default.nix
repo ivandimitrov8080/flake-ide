@@ -110,6 +110,13 @@ let
         lua = true;
         options.silent = true;
       }
+      {
+        mode = "n";
+        key = "<leader>lf";
+        action = "vim.lsp.buf.format";
+        lua = true;
+        options.silent = true;
+      }
     ];
     plugins = {
       cmp-spell.enable = true;
