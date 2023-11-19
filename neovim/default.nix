@@ -174,7 +174,6 @@ let
         };
       };
       efmls-configs = {
-        enable = plugins.lsp.efm.enable;
         setup = {
           typescript.formatter = "prettier_d";
           typescriptreact.formatter = "prettier_d";
