@@ -5,7 +5,7 @@
 , ...
 }:
 let
-  defaultConfig = {
+  defaultConfig = rec {
     globals = {
       mapleader = " ";
       maplocalleader = " ";
@@ -174,7 +174,7 @@ let
         };
       };
       efmls-configs = {
-        enable = true;
+        enable = plugins.lsp.efm.enable;
         setup = {
           typescript.formatter = "prettier_d";
           typescriptreact.formatter = "prettier_d";
