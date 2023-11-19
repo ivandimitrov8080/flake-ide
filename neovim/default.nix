@@ -133,9 +133,16 @@ let
       nvim-autopairs.enable = true;
       lsp = {
         enable = true;
-        servers.nixd = {
-          enable = true;
-          settings.formatting.command = "nixpkgs-fmt";
+        servers = {
+          nixd = {
+            enable = true;
+            settings.formatting.command = "nixpkgs-fmt";
+          };
+          efm = {
+            extraOptions = {
+              init_options = { documentFormatting = true; };
+            };
+          };
         };
         onAttach = ''
           if client.server_capabilities.documentHighlightProvider then
@@ -164,6 +171,16 @@ let
             gi = "implementation";
             gt = "type_definition";
           };
+        };
+      };
+      efmls-configs = {
+        enable = true;
+        setup = {
+          typescript.formatter = "prettier_d";
+          typescriptreact.formatter = "prettier_d";
+          html.formatter = "prettier_d";
+          css.formatter = "prettier_d";
+          json.formatter = "prettier_d";
         };
       };
       nvim-cmp = {
