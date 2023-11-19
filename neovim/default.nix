@@ -105,36 +105,8 @@ let
       }
       {
         mode = "n";
-        key = "<leader>ca";
+        key = "<leader>lr";
         action = "vim.lsp.buf.rename";
-        lua = true;
-        options.silent = true;
-      }
-      {
-        mode = "n";
-        key = "gd";
-        action = "vim.lsp.buf.definition";
-        lua = true;
-        options.silent = true;
-      }
-      {
-        mode = "n";
-        key = "<leader>lf";
-        action = "vim.lsp.buf.format";
-        lua = true;
-        options.silent = true;
-      }
-      {
-        mode = "n";
-        key = "K";
-        action = "vim.lsp.buf.hover";
-        lua = true;
-        options.silent = true;
-      }
-      {
-        mode = "n";
-        key = "gr";
-        action = "require('telescope.builtin').lsp_references";
         lua = true;
         options.silent = true;
       }
@@ -177,6 +149,15 @@ let
         capabilities = ''
           require("cmp_nvim_lsp").default_capabilities()
         '';
+        keymaps = {
+          lspBuf = {
+            K = "hover";
+            gD = "references";
+            gd = "definition";
+            gi = "implementation";
+            gt = "type_definition";
+          };
+        };
       };
       nvim-cmp = {
         enable = true;
