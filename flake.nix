@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs";
     nixvim = {
-      url = "github:ivandimitrov8080/nixvim";
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     systems.url = "github:nix-systems/x86_64-linux";
@@ -30,7 +30,9 @@
       };
     in
     {
-      nvim = cfg: nv.standalone cfg;
-      homeManagerModules.nvim = cfg: nv.homevim cfg;
+      nvim = {
+        standalone = cfg: nv.standalone cfg;
+        homeManagerModules.nvim = cfg: (nv.homevim cfg);
+      };
     });
 }
