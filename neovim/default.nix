@@ -120,18 +120,19 @@ let
       }
     ];
     plugins = {
-      cmp-spell.enable = true;
-      cmp-nvim-lsp.enable = true;
-      cmp_luasnip.enable = true;
       barbar.enable = true;
-      luasnip.enable = true;
-      telescope.enable = true;
-      gitsigns.enable = true;
-      toggleterm.enable = true;
+      cmp-nvim-lsp.enable = true;
+      cmp-spell.enable = true;
+      cmp_luasnip.enable = true;
       comment-nvim.enable = true;
+      gitsigns.enable = true;
+      inc-rename.enable = true;
+      luasnip.enable = true;
+      nvim-autopairs.enable = true;
+      telescope.enable = true;
+      toggleterm.enable = true;
       treesitter.enable = true;
       ts-autotag.enable = true;
-      nvim-autopairs.enable = true;
       lsp = {
         enable = true;
         servers = {
