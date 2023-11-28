@@ -6,6 +6,7 @@
 }:
 let
   defaultConfig = rec {
+    enableMan = false;
     globals = {
       mapleader = " ";
       maplocalleader = " ";
