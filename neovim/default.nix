@@ -107,8 +107,7 @@ let
       {
         mode = "n";
         key = "<leader>lr";
-        action = "vim.lsp.buf.rename";
-        lua = true;
+        action = ":IncRename";
         options.silent = true;
       }
       {
@@ -129,6 +128,7 @@ let
       inc-rename.enable = true;
       luasnip.enable = true;
       nvim-autopairs.enable = true;
+      noice.enable = true;
       telescope.enable = true;
       toggleterm.enable = true;
       treesitter.enable = true;
