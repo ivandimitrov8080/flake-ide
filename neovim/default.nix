@@ -128,7 +128,6 @@ let
       gitsigns.enable = true;
       luasnip.enable = true;
       nvim-autopairs.enable = true;
-      noice.enable = true;
       telescope.enable = true;
       toggleterm.enable = true;
       treesitter.enable = true;
