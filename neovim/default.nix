@@ -50,6 +50,18 @@ let
       }
       {
         mode = "n";
+        key = "<S-j>";
+        action = "<cmd>move +1<cr>";
+        options.silent = true;
+      }
+      {
+        mode = "n";
+        key = "<S-k>";
+        action = "<cmd>move -2<cr>";
+        options.silent = true;
+      }
+      {
+        mode = "n";
         key = "<S-Tab>";
         action = "<cmd>BufferPrevious<cr>";
         options.silent = true;
