@@ -50,13 +50,13 @@ let
       }
       {
         mode = "n";
-        key = "<S-j>";
+        key = "<C-j>";
         action = "<cmd>move +1<cr>";
         options.silent = true;
       }
       {
         mode = "n";
-        key = "<S-k>";
+        key = "<C-k>";
         action = "<cmd>move -2<cr>";
         options.silent = true;
       }
