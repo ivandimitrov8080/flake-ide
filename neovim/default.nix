@@ -195,7 +195,7 @@ let
           json.formatter = "prettier_d";
         };
       };
-      nvim-cmp = {
+      cmp = {
         enable = true;
         mapping = {
           "<CR>" = "cmp.mapping.confirm({ select = true })";
@@ -203,14 +203,14 @@ let
           "<C-j>" = "cmp.mapping.select_next_item()";
           "<C-k>" = "cmp.mapping.select_prev_item()";
         };
-        snippet.expand = "luasnip";
+        sources = [
+          { name = "nvim_lsp"; }
+          { name = "luasnip"; }
+          { name = "path"; }
+          { name = "buffer"; }
+        ];
+        settings.snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
       };
-      nvim-cmp.sources = [
-        { name = "nvim_lsp"; }
-        { name = "luasnip"; }
-        { name = "path"; }
-        { name = "buffer"; }
-      ];
       lualine = {
         enable = true;
         theme = "catppuccin";
