@@ -136,7 +136,7 @@ let
       cmp-nvim-lsp.enable = true;
       cmp-spell.enable = true;
       cmp_luasnip.enable = true;
-      comment-nvim.enable = true;
+      comment.enable = true;
       gitsigns.enable = true;
       luasnip.enable = true;
       nvim-autopairs.enable = true;
