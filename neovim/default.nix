@@ -188,8 +188,8 @@ let
       };
       efmls-configs = {
         setup = {
-          typescript.formatter = "prettier_d";
-          typescriptreact.formatter = "prettier_d";
+          typescript.formatter = "deno_fmt";
+          typescriptreact.formatter = "deno_fmt";
           html.formatter = "prettier_d";
           css.formatter = "prettier_d";
           json.formatter = "prettier_d";
