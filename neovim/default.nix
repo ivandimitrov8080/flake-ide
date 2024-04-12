@@ -186,15 +186,6 @@ let
           };
         };
       };
-      efmls-configs = {
-        setup = {
-          typescript.formatter = "deno_fmt";
-          typescriptreact.formatter = "deno_fmt";
-          html.formatter = "prettier_d";
-          css.formatter = "prettier_d";
-          json.formatter = "prettier_d";
-        };
-      };
       cmp = {
         enable = true;
         settings.snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
