@@ -23,16 +23,18 @@ let
     };
     colorschemes.catppuccin = {
       enable = true;
-      flavour = "mocha";
-      transparentBackground = true;
-      integrations = {
-        cmp = true;
-        gitsigns = true;
-        treesitter = true;
-        telescope = {
-          enabled = true;
+      settings = {
+        flavour = "mocha";
+        transparentBackground = true;
+        integrations = {
+          cmp = true;
+          gitsigns = true;
+          treesitter = true;
+          telescope = {
+            enabled = true;
+          };
+          markdown = true;
         };
-        markdown = true;
       };
     };
     keymaps = [
