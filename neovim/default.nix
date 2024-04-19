@@ -11,7 +11,7 @@ let
       mapleader = " ";
       maplocalleader = " ";
     };
-    options = {
+    opts = {
       number = true;
       scrolloff = 15;
       hlsearch = false;
