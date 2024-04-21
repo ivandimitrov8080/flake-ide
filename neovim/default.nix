@@ -21,6 +21,11 @@ let
       shiftwidth = 2;
       expandtab = true;
     };
+    filetype = {
+      extension = {
+        nu = "nu";
+      };
+    };
     colorschemes.catppuccin = {
       enable = true;
       settings = {
