@@ -2,7 +2,11 @@
   description = "Flake that provides preconfigured IDEs";
 
   inputs = {
-    nixpkgs.url = "nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,11 +23,15 @@
     , nixvim
     , flake-utils
     , nixpkgs
+    , neovim-nightly-overlay
     , ...
     }:
     flake-utils.lib.eachDefaultSystem (system:
     let
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [ neovim-nightly-overlay.overlay ];
+      };
       lib = pkgs.lib;
       nv = import ./neovim {
         inherit nixvim pkgs lib system;

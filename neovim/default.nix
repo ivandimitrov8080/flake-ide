@@ -7,6 +7,7 @@
 let
   defaultConfig = rec {
     enableMan = false;
+    package = pkgs.neovim-nightly;
     globals = {
       mapleader = " ";
       maplocalleader = " ";
@@ -20,11 +21,6 @@ let
       tabstop = 4;
       shiftwidth = 2;
       expandtab = true;
-    };
-    filetype = {
-      extension = {
-        nu = "nu";
-      };
     };
     colorschemes.catppuccin = {
       enable = true;
@@ -142,26 +138,20 @@ let
       barbar.enable = true;
       cmp-nvim-lsp.enable = true;
       cmp-spell.enable = true;
-      cmp_luasnip.enable = true;
       comment.enable = true;
       gitsigns.enable = true;
       luasnip.enable = true;
       nvim-autopairs.enable = true;
       telescope.enable = true;
       toggleterm.enable = true;
-      treesitter.enable = true;
       ts-autotag.enable = true;
+      treesitter.enable = true;
       lsp = {
         enable = true;
         servers = {
           nixd = {
             enable = true;
             settings.formatting.command = "nixpkgs-fmt";
-          };
-          efm = {
-            extraOptions = {
-              init_options = { documentFormatting = true; };
-            };
           };
         };
         onAttach = ''
@@ -195,7 +185,7 @@ let
       };
       cmp = {
         enable = true;
-        settings.snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
+        settings.snippet.expand = "function(args) vim.snippet.expand(args.body) end";
       };
       lualine = {
         enable = true;
