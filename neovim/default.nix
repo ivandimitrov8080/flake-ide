@@ -43,95 +43,98 @@ let
         mode = [ "n" "v" ];
         key = "<Space>";
         action = "<Nop>";
-        options.silent = true;
+        options = { silent = true; desc = "Don't map the leader key"; };
       }
       {
         mode = "n";
         key = "<Tab>";
         action = "<cmd>BufferNext<cr>";
-        options.silent = true;
+        options = { silent = true; desc = "Switch tabs forwards"; };
       }
       {
         mode = "n";
         key = "<C-j>";
         action = "<cmd>move +1<cr>";
-        options.silent = true;
+        options = { silent = true; desc = "Move current line down by 1"; };
       }
       {
         mode = "n";
         key = "<C-k>";
         action = "<cmd>move -2<cr>";
-        options.silent = true;
+        options = { silent = true; desc = "Move current line up by 1"; };
       }
       {
         mode = "n";
         key = "<S-Tab>";
         action = "<cmd>BufferPrevious<cr>";
-        options.silent = true;
+        options = { silent = true; desc = "Switch tabs backwards"; };
       }
       {
         mode = "n";
         key = "<leader>x";
         action = "<cmd>BufferClose<cr>";
-        options.silent = true;
+        options = { silent = true; desc = "Close current buffer"; };
       }
       {
         mode = "n";
         key = "<leader>/";
         action = "require('Comment.api').toggle.linewise.current";
         lua = true;
-        options.silent = true;
+        options = { silent = true; desc = "Comment out the current line"; };
       }
       {
         mode = "v";
         key = "<leader>/";
         action = "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>";
-        options.silent = true;
+        options = { silent = true; desc = "Comment out the selection"; };
       }
       {
         mode = [ "n" "t" ];
         key = "<leader>h";
         action = "<cmd>ToggleTerm<cr>";
-        options.silent = true;
+        options = { silent = true; desc = "Open a terminal"; };
       }
       {
         mode = "n";
         key = "<leader>ff";
         action = "require('telescope.builtin').find_files";
         lua = true;
+        options.desc = "Find files";
       }
       {
         mode = "n";
         key = "<leader>fw";
         action = "require('telescope.builtin').live_grep";
         lua = true;
+        options.desc = "Find words";
       }
       {
         mode = "n";
         key = "<leader>e";
         action = "vim.diagnostic.open_float";
         lua = true;
+        options.desc = "Open diagnostics";
       }
       {
         mode = "n";
         key = "<leader>ca";
         action = "vim.lsp.buf.code_action";
         lua = true;
-        options.silent = true;
+        options = { silent = true; desc = "Code action"; };
       }
       {
         mode = "n";
         key = "<leader>lr";
         action = "vim.lsp.buf.rename";
         lua = true;
-        options.silent = true;
+        options = { silent = true; desc = "LSP Rename"; };
       }
       {
         mode = "n";
         key = "<leader>lf";
         action = "vim.lsp.buf.format";
         lua = true;
-        options.silent = true;
+        options = { silent = true; desc = "Format buffer"; };
       }
     ];
     plugins = {
@@ -146,6 +149,7 @@ let
       toggleterm.enable = true;
       ts-autotag.enable = true;
       treesitter.enable = true;
+      which-key.enable = true;
       lsp = {
         enable = true;
         servers = {
