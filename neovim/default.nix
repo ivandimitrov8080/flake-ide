@@ -26,7 +26,7 @@ let
       enable = true;
       settings = {
         flavour = "mocha";
-        transparentBackground = true;
+        transparent_background = true;
         integrations = {
           cmp = true;
           gitsigns = true;
