@@ -136,6 +136,12 @@ let
         lua = true;
         options = { silent = true; desc = "Format buffer"; };
       }
+      {
+        mode = "n";
+        key = "<leader>tt";
+        action = "<cmd>TodoTelescope<cr>";
+        options = { silent = true; desc = "Show Todo Telescope"; };
+      }
     ];
     plugins = {
       barbar.enable = true;
