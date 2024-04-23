@@ -150,6 +150,7 @@ let
       ts-autotag.enable = true;
       treesitter.enable = true;
       which-key.enable = true;
+      todo-comments.enable = true;
       lsp = {
         enable = true;
         servers = {
