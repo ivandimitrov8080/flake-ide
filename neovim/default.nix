@@ -5,7 +5,7 @@
 , ...
 }:
 let
-  defaultConfig = rec {
+  defaultConfig = {
     enableMan = false;
     package = pkgs.neovim-nightly;
     globals = {

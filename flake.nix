@@ -42,5 +42,10 @@
         standalone = cfg: nv.standalone cfg;
         homeManagerModules.nvim = cfg: (nv.homevim cfg);
       };
+      devShells.default = pkgs.mkShell {
+        buildInputs = [
+          (self.nvim.${system}.standalone { })
+        ];
+      };
     });
 }
