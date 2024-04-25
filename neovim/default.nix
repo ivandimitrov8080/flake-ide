@@ -154,7 +154,18 @@ let
       telescope.enable = true;
       toggleterm.enable = true;
       ts-autotag.enable = true;
-      treesitter.enable = true;
+      treesitter = {
+        enable = true;
+        incrementalSelection = {
+          enable = true;
+          keymaps = {
+            initSelection = "<C-a>";
+            nodeIncremental = "<C-a>";
+            scopeIncremental = "<C-s>";
+            nodeDecremental = "<C-d>";
+          };
+        };
+      };
       which-key.enable = true;
       todo-comments.enable = true;
       lsp = {
