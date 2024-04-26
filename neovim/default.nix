@@ -154,6 +154,7 @@ let
       telescope.enable = true;
       toggleterm.enable = true;
       ts-autotag.enable = true;
+      diffview.enable = true;
       treesitter = {
         enable = true;
         incrementalSelection = {
