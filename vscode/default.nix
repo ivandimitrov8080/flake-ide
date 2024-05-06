@@ -13,7 +13,7 @@ let
       "editor.tabSize" = 2;
       "editor.fontSize" = 14;
       "editor.formatOnSave" = true;
-      "workbench.iconTheme" = "vscode-icons";
+      "workbench.iconTheme" = "catppuccin-mocha";
       "editor.renderWhitespace" = "none";
       "editor.minimap.enabled" = false;
       "editor.renderLineHighlight" = "none";
@@ -23,7 +23,6 @@ let
       "editor.scrollbar.vertical" = "hidden";
       "editor.scrollbar.horizontal" = "hidden";
     };
-
   };
 in
 {
