@@ -36,11 +36,17 @@
       nv = import ./neovim {
         inherit nixvim pkgs lib system;
       };
+      code = import ./vscode {
+        inherit nixvim pkgs lib system;
+      };
     in
     {
       nvim = {
         standalone = cfg: nv.standalone cfg;
         homeManagerModules.nvim = cfg: (nv.homevim cfg);
+      };
+      code = {
+        homeManagerModules.code = cfg: code.homecode cfg;
       };
       devShells.default = pkgs.mkShell {
         buildInputs = [
