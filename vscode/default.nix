@@ -28,8 +28,6 @@ let
       "breadcrumbs.enabled" = false;
       "editor.renderControlCharacters" = false;
       "workbench.colorTheme" = "Catppuccin Mocha";
-      "workbench.activityBar.visible" = false;
-      "workbench.statusBar.visible" = false;
       "editor.scrollbar.verticalScrollbarSize" = 2;
       "editor.scrollbar.horizontalScrollbarSize" = 2;
       "editor.scrollbar.vertical" = "hidden";
