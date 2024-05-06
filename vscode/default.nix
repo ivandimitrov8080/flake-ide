@@ -14,25 +14,14 @@ let
       "editor.fontSize" = 14;
       "editor.formatOnSave" = true;
       "workbench.iconTheme" = "vscode-icons";
-      "editor.renderWhitespace" = "all";
+      "editor.renderWhitespace" = "none";
       "editor.minimap.enabled" = false;
       "editor.renderLineHighlight" = "none";
-      "editor.mouseWheelZoom" = true;
-      "workbench.layoutControl.type" = "menu";
-      "workbench.editor.limit.enabled" = true;
-      "workbench.editor.limit.value" = 1;
-      "workbench.editor.limit.perEditorGroup" = true;
       "workbench.editor.showTabs" = false;
       "files.autoSave" = "onWindowChange";
-      "explorer.openEditors.visible" = 0;
-      "breadcrumbs.enabled" = false;
-      "editor.renderControlCharacters" = false;
       "workbench.colorTheme" = "Catppuccin Mocha";
-      "editor.scrollbar.verticalScrollbarSize" = 2;
-      "editor.scrollbar.horizontalScrollbarSize" = 2;
       "editor.scrollbar.vertical" = "hidden";
       "editor.scrollbar.horizontal" = "hidden";
-      "workbench.layoutControl.enabled" = false;
     };
 
   };
