@@ -1,5 +1,4 @@
 { nixvim
-, pkgs
 , system
 , lib
 , ...
@@ -17,7 +16,7 @@ let
       "editor.renderWhitespace" = "none";
       "editor.minimap.enabled" = false;
       "editor.renderLineHighlight" = "none";
-      "workbench.editor.showTabs" = false;
+      "workbench.editor.showTabs" = "multiple";
       "files.autoSave" = "onWindowChange";
       "workbench.colorTheme" = "Catppuccin Mocha";
       "editor.scrollbar.vertical" = "hidden";
