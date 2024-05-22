@@ -183,10 +183,7 @@ let
       lsp = {
         enable = true;
         servers = {
-          nixd = {
-            enable = true;
-            settings.formatting.command = "nixpkgs-fmt";
-          };
+          nixd.enable = true;
         };
         onAttach = ''
           if client.server_capabilities.documentHighlightProvider then
