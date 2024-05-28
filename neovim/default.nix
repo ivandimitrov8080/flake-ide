@@ -154,18 +154,7 @@ let
       telescope.enable = true;
       toggleterm.enable = true;
       ts-autotag.enable = true;
-      diffview = {
-        enable = true;
-        package = pkgs.vimUtils.buildVimPlugin {
-          name = "diffview.nvim";
-          src = pkgs.fetchFromGitHub {
-            owner = "mikesmithgh";
-            repo = "diffview.nvim";
-            rev = "04a2d428bb45e8ca749a6137d36cc390a46757fb";
-            sha256 = "sha256-OpeeiXYzImzbfuhXTX/rSZBXTo+nP0VaUiK4QvXHROo=";
-          };
-        };
-      };
+      diffview.enable = true;
       treesitter = {
         enable = true;
         incrementalSelection = {
