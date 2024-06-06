@@ -154,7 +154,12 @@ let
       telescope.enable = true;
       toggleterm.enable = true;
       ts-autotag.enable = true;
-      diffview.enable = true;
+      diffview = {
+        enable = true;
+        package = pkgs.vimPlugins.diffview-nvim.overrideAttrs (final: prev: {
+          version = "2024-05-24";
+        });
+      };
       treesitter = {
         enable = true;
         incrementalSelection = {
