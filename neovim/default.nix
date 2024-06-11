@@ -245,12 +245,12 @@ let
     };
   };
 in
-{
-  standalone = cfg: nixvim.legacyPackages."${system}".makeNixvim (lib.recursiveUpdate defaultConfig cfg);
-  homevim = cfg: (
-    {
-      imports = [ nixvim.homeManagerModules.nixvim ];
-      programs.nixvim = (lib.recursiveUpdate defaultConfig cfg);
-    }
-  );
+rec {
+  default = cfg: nixvim.legacyPackages."${system}".makeNixvim (lib.recursiveUpdate defaultConfig cfg);
+  c = cfg: default (lib.recursiveUpdate { plugins.lsp.servers.clangd.enable = true; } cfg);
+  homevim = cfg: {
+    imports = [ nixvim.homeManagerModules.nixvim ];
+    programs.nixvim = (lib.recursiveUpdate defaultConfig cfg);
+  }
+  ;
 }
