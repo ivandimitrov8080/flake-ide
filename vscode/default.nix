@@ -41,6 +41,10 @@ let
         "vscodevim.vim" = 1;
       };
     };
+    keybindings = [
+      { key = "tab"; command = "workbench.action.nextEditor"; }
+      { key = "shift+tab"; command = "workbench.action.previousEditor"; }
+    ];
   };
 in
 {
