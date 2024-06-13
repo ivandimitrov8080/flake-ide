@@ -21,6 +21,25 @@ let
       "workbench.colorTheme" = "Catppuccin Mocha";
       "editor.scrollbar.vertical" = "hidden";
       "editor.scrollbar.horizontal" = "hidden";
+      "vim.easymotion" = true;
+      "vim.incsearch" = true;
+      "vim.useSystemClipboard" = true;
+      "vim.useCtrlKeys" = true;
+      "vim.hlsearch" = true;
+      "vim.normalModeKeyBindings" = [
+        {
+          before = [ "<leader>" "f" "w" ];
+          commands = [ "search.action.openEditor" ];
+        }
+      ];
+      "vim.leader" = "<space>";
+      "vim.handleKeys" = {
+        "<C-a>" = false;
+        "<C-f>" = false;
+      };
+      "extensions.experimental.affinity" = {
+        "vscodevim.vim" = 1;
+      };
     };
   };
 in
