@@ -31,6 +31,10 @@ let
           before = [ "<leader>" "f" "w" ];
           commands = [ "search.action.openEditor" ];
         }
+        {
+          before = [ "<leader>" "x" ];
+          commands = [ "workbench.action.closeActiveEditor" ];
+        }
       ];
       "vim.leader" = "<space>";
       "vim.handleKeys" = {
