@@ -40,6 +40,7 @@ let
       "vim.handleKeys" = {
         "<C-a>" = false;
         "<C-f>" = false;
+        "<C-p>" = false;
       };
       "extensions.experimental.affinity" = {
         "vscodevim.vim" = 1;
