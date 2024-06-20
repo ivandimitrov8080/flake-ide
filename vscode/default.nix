@@ -32,6 +32,10 @@ let
           commands = [ "search.action.openEditor" ];
         }
         {
+          before = [ "<leader>" "l" "f" ];
+          commands = [ "editor.action.formatDocument" ];
+        }
+        {
           before = [ "<leader>" "x" ];
           commands = [ "workbench.action.closeActiveEditor" ];
         }
