@@ -40,6 +40,10 @@ let
           commands = [ "editor.action.organizeImports" ];
         }
         {
+          before = [ "<leader>" "l" "a" ];
+          commands = [ "editor.action.quickFix" ];
+        }
+        {
           before = [ "<leader>" "x" ];
           commands = [ "workbench.action.closeActiveEditor" ];
         }
