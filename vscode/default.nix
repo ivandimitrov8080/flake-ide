@@ -36,6 +36,10 @@ let
           commands = [ "editor.action.formatDocument" ];
         }
         {
+          before = [ "<leader>" "l" "o" ];
+          commands = [ "editor.action.organizeImports" ];
+        }
+        {
           before = [ "<leader>" "x" ];
           commands = [ "workbench.action.closeActiveEditor" ];
         }
