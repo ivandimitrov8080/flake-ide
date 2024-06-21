@@ -170,6 +170,12 @@ let
         action = "<cmd>TodoTelescope<cr>";
         options = { silent = true; desc = "Show Todo Telescope"; };
       }
+      {
+        mode = "n";
+        key = "<leader>r";
+        action = "<cmd>!make run<cr>";
+        options = { silent = true; desc = "Run `make run`"; };
+      }
     ];
     plugins = {
       barbar.enable = true;
