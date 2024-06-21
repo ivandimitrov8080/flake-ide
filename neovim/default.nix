@@ -117,6 +117,27 @@ let
       }
       {
         mode = "n";
+        key = "gi";
+        action = "require('telescope.builtin').lsp_implementations";
+        lua = true;
+        options.desc = "Go to implementations";
+      }
+      {
+        mode = "n";
+        key = "gd";
+        action = "require('telescope.builtin').lsp_definitions";
+        lua = true;
+        options.desc = "Go to definitions";
+      }
+      {
+        mode = "n";
+        key = "gt";
+        action = "require('telescope.builtin').lsp_type_definitions";
+        lua = true;
+        options.desc = "Go to type definitions";
+      }
+      {
+        mode = "n";
         key = "<leader>e";
         action = "vim.diagnostic.open_float";
         lua = true;
@@ -211,9 +232,6 @@ let
         keymaps = {
           lspBuf = {
             K = "hover";
-            gd = "definition";
-            gi = "implementation";
-            gt = "type_definition";
           };
         };
       };
