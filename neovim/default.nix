@@ -110,6 +110,13 @@ let
       }
       {
         mode = "n";
+        key = "gr";
+        action = "require('telescope.builtin').lsp_references";
+        lua = true;
+        options.desc = "Go to references";
+      }
+      {
+        mode = "n";
         key = "<leader>e";
         action = "vim.diagnostic.open_float";
         lua = true;
@@ -204,7 +211,6 @@ let
         keymaps = {
           lspBuf = {
             K = "hover";
-            gr = "references";
             gd = "definition";
             gi = "implementation";
             gt = "type_definition";
