@@ -204,7 +204,7 @@ let
         keymaps = {
           lspBuf = {
             K = "hover";
-            gD = "references";
+            gr = "references";
             gd = "definition";
             gi = "implementation";
             gt = "type_definition";
