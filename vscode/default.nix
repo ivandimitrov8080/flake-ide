@@ -47,6 +47,10 @@ let
           before = [ "<leader>" "x" ];
           commands = [ "workbench.action.closeActiveEditor" ];
         }
+        {
+          before = [ "g" "r" ];
+          commands = [ "editor.action.quickFix" ];
+        }
       ];
       "vim.leader" = "<space>";
       "vim.handleKeys" = {
