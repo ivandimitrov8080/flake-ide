@@ -2,7 +2,7 @@
   description = "Flake that provides preconfigured IDEs";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,13 +39,18 @@
         inherit nixvim pkgs lib system;
       };
     in
-    {
+    rec {
       nvim = {
         standalone = nv;
         homeManagerModules.nvim = cfg: (nv.homevim cfg);
       };
       code = {
         homeManagerModules.code = cfg: vscode.homecode cfg;
+      };
+      devShells.default = pkgs.mkShell {
+        buildInputs = [
+          (nvim.standalone.default { })
+        ];
       };
     });
 }
