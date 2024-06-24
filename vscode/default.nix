@@ -49,7 +49,7 @@ let
         }
         {
           before = [ "g" "r" ];
-          commands = [ "editor.action.quickFix" ];
+          commands = [ "editor.action.goToReferences" ];
         }
       ];
       "vim.leader" = "<space>";
