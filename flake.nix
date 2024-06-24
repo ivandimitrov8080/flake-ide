@@ -19,8 +19,7 @@
   };
 
   outputs =
-    { self
-    , nixvim
+    { nixvim
     , flake-utils
     , nixpkgs
     , neovim-nightly-overlay
@@ -30,13 +29,13 @@
     let
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [ neovim-nightly-overlay.overlay ];
+        overlays = [ neovim-nightly-overlay.overlays.default ];
       };
       lib = pkgs.lib;
       nv = import ./neovim {
         inherit nixvim pkgs lib system;
       };
-      code = import ./vscode {
+      vscode = import ./vscode {
         inherit nixvim pkgs lib system;
       };
     in
@@ -46,13 +45,7 @@
         homeManagerModules.nvim = cfg: (nv.homevim cfg);
       };
       code = {
-        homeManagerModules.code = cfg: code.homecode cfg;
-      };
-      devShells.default = pkgs.mkShell {
-        buildInputs = [
-          (self.nvim.${system}.standalone.default { })
-          (self.nvim.${system}.standalone.c { })
-        ];
+        homeManagerModules.code = cfg: vscode.homecode cfg;
       };
     });
 }

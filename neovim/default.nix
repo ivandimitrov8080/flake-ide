@@ -7,7 +7,7 @@
 let
   defaultConfig = {
     enableMan = false;
-    package = pkgs.neovim-nightly;
+    package = pkgs.neovim;
     globals = {
       mapleader = " ";
       maplocalleader = " ";
@@ -78,8 +78,7 @@ let
       {
         mode = "n";
         key = "<leader>/";
-        action = "require('Comment.api').toggle.linewise.current";
-        lua = true;
+        action.__raw = "require('Comment.api').toggle.linewise.current";
         options = { silent = true; desc = "Comment out the current line"; };
       }
       {
@@ -97,71 +96,61 @@ let
       {
         mode = "n";
         key = "<leader>ff";
-        action = "require('telescope.builtin').find_files";
-        lua = true;
+        action.__raw = "require('telescope.builtin').find_files";
         options.desc = "Find files";
       }
       {
         mode = "n";
         key = "<leader>fw";
-        action = "require('telescope.builtin').live_grep";
-        lua = true;
+        action.__raw = "require('telescope.builtin').live_grep";
         options.desc = "Find words";
       }
       {
         mode = "n";
         key = "gr";
-        action = "require('telescope.builtin').lsp_references";
-        lua = true;
+        action.__raw = "require('telescope.builtin').lsp_references";
         options.desc = "Go to references";
       }
       {
         mode = "n";
         key = "gi";
-        action = "require('telescope.builtin').lsp_implementations";
-        lua = true;
+        action.__raw = "require('telescope.builtin').lsp_implementations";
         options.desc = "Go to implementations";
       }
       {
         mode = "n";
         key = "gd";
-        action = "require('telescope.builtin').lsp_definitions";
-        lua = true;
+        action.__raw = "require('telescope.builtin').lsp_definitions";
         options.desc = "Go to definitions";
       }
       {
         mode = "n";
         key = "gt";
-        action = "require('telescope.builtin').lsp_type_definitions";
-        lua = true;
+        action.__raw = "require('telescope.builtin').lsp_type_definitions";
         options.desc = "Go to type definitions";
       }
       {
         mode = "n";
         key = "<leader>e";
-        action = "vim.diagnostic.open_float";
-        lua = true;
+        action.__raw = "vim.diagnostic.open_float";
         options.desc = "Open diagnostics";
       }
       {
         mode = "n";
         key = "<leader>ca";
-        action = "vim.lsp.buf.code_action";
-        lua = true;
+        action.__raw = "vim.lsp.buf.code_action";
         options = { silent = true; desc = "Code action"; };
       }
       {
         mode = "n";
         key = "<leader>lr";
-        action = "vim.lsp.buf.rename";
-        lua = true;
+        action.__raw = "vim.lsp.buf.rename";
         options = { silent = true; desc = "LSP Rename"; };
       }
       {
         mode = "n";
         key = "<leader>lf";
-        action = "vim.lsp.buf.format";
-        lua = true;
+        action.__raw = "vim.lsp.buf.format";
         options = { silent = true; desc = "Format buffer"; };
       }
       {
@@ -262,6 +251,7 @@ let
             { name = "luasnip"; }
             { name = "path"; }
             { name = "buffer"; }
+            { name = "otter"; }
           ];
         };
       };
@@ -273,6 +263,16 @@ let
         };
       };
     };
+    extraPlugins = with pkgs.vimPlugins; [ otter-nvim ];
+    extraConfigLua = ''
+      --
+      local languages = { 'python', 'lua' }
+      local completion = true
+      local diagnostics = true
+      local tsquery = nil
+
+      otter.activate(languages, completion, diagnostics, tsquery)
+    '';
   };
 in
 rec {
