@@ -51,6 +51,14 @@ let
           before = [ "g" "r" ];
           commands = [ "editor.action.goToReferences" ];
         }
+        {
+          before = [ "<Tab>" ];
+          commands = [ "workbench.action.nextEditor" ];
+        }
+        {
+          before = [ "<S-Tab>" ];
+          commands = [ "workbench.action.previousEditor" ];
+        }
       ];
       "vim.leader" = "<space>";
       "vim.handleKeys" = {
@@ -62,10 +70,6 @@ let
         "vscodevim.vim" = 1;
       };
     };
-    keybindings = [
-      { key = "tab"; command = "workbench.action.nextEditor"; }
-      { key = "shift+tab"; command = "workbench.action.previousEditor"; }
-    ];
   };
 in
 {
