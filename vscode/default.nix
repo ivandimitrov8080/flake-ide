@@ -44,6 +44,10 @@ let
           commands = [ "editor.action.quickFix" ];
         }
         {
+          before = [ "<leader>" "l" "r" ];
+          commands = [ "editor.action.rename" ];
+        }
+        {
           before = [ "<leader>" "x" ];
           commands = [ "workbench.action.closeActiveEditor" ];
         }
