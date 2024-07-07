@@ -227,8 +227,6 @@ let
           local completion = true
           local diagnostics = true
           local tsquery = nil
-
-          require("otter").activate(languages, completion, diagnostics, tsquery)
         '';
         capabilities = ''
           require("cmp_nvim_lsp").default_capabilities()
@@ -260,7 +258,6 @@ let
             { name = "luasnip"; }
             { name = "path"; }
             { name = "buffer"; }
-            { name = "otter"; }
           ];
         };
       };
@@ -272,7 +269,7 @@ let
         };
       };
     };
-    extraPlugins = with pkgs.vimPlugins; [ otter-nvim ];
+    extraPlugins = with pkgs.vimPlugins; [ vim-gnupg ];
   };
 in
 rec {
