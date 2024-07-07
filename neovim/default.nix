@@ -269,7 +269,6 @@ let
         };
       };
     };
-    extraPlugins = with pkgs.vimPlugins; [ vim-gnupg ];
   };
 in
 rec {
