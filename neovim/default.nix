@@ -8,6 +8,7 @@ let
   defaultConfig = {
     enableMan = false;
     package = pkgs.neovim;
+    viAlias = true;
     globals = {
       mapleader = " ";
       maplocalleader = " ";
