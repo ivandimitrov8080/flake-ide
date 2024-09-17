@@ -266,9 +266,10 @@ let
       };
       lualine = {
         enable = true;
-        theme = "catppuccin";
-        sections = {
-          lualine_c = [{ name = "filename"; extraConfig.path = 2; }];
+        settings = {
+          options = {
+            theme = "catppuccin";
+          };
         };
       };
     };
