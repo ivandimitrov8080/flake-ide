@@ -178,6 +178,7 @@ let
       telescope.enable = true;
       toggleterm.enable = true;
       ts-autotag.enable = true;
+      web-devicons = true;
       diffview = {
         enable = true;
         package = pkgs.vimPlugins.diffview-nvim.overrideAttrs (final: prev: {
